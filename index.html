@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <!-- Мета-тег viewport для правильного отображения на смартфонах -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Генератор рентабельного числа</title>
+    <!-- Подключаем файл со стилями -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- ЭКРАН 1: Ввод данных (виден при запуске) -->
+        <div id="screen-input" class="screen">
+            <h1>Калькулятор ставки</h1>
+            
+            <div class="input-group">
+                <label>Хочу зарабатывать (чистыми в месяц)</label>
+                <input type="number" id="target-profit" placeholder="100 000 ₽">
+            </div>
+
+            <div class="input-group">
+                <label>Накладные расходы (налоги, софт)</label>
+                <input type="number" id="expenses" placeholder="20 000 ₽">
+            </div>
+
+            <div class="input-group">
+                <label>Реально работаю часов в день</label>
+                <input type="number" id="work-hours" placeholder="6">
+            </div>
+
+            <button id="btn-calculate" class="btn-main">Рассчитать ставку часа</button>
+        </div>
+
+        <!-- ЭКРАН 2: Результат (скрыт по умолчанию классом hidden) -->
+        <div id="screen-result" class="screen hidden">
+            <div class="result-card">
+                <p>Твоя минимальная цена часа:</p>
+                <div class="price-display"><span id="hour-rate">0</span> ₽</div>
+            </div>
+
+            <button id="btn-show-modal" class="btn-main">Создать уверенный ответ</button>
+            <!-- Ссылка-кнопка для возврата назад -->
+            <button id="btn-back" class="btn-secondary">← Исправить данные</button>
+        </div>
+    </div>
+
+    <!-- МОДАЛЬНОЕ ОКНО (всплывает поверх всего) -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Готовый ответ клиенту</h3>
+            <p>Сколько часов займет задача (N)?</p>
+            <input type="number" id="task-hours" value="10" class="mini-input">
+            
+            <div class="message-box" id="message-text">
+                <!-- Сюда JavaScript вставит итоговый текст сообщения -->
+            </div>
+
+            <button id="btn-copy" class="btn-main">Копировать текст</button>
+            <button id="btn-close-modal" class="btn-secondary">Закрыть</button>
+        </div>
+    </div>
+
+    <!-- Подключаем файл с логикой JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
